@@ -1,20 +1,20 @@
 export const Bio = {
-  name: "Rishav Chanda",
+  name: "Rizwan Hussain",
   roles: [
     "Full Stack Developer",
-    "Android Developer",
+    "React Developer",
     "UI/UX Designer",
     "Programmer",
   ],
   description:
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
-  github: "https://github.com/rishavchanda",
+  github: "https://github.com/Rizwanhu",
   resume:
-    "https://drive.google.com/file/d/1txFKZD3LNIXMc329jD9c995AU8LItOXK/view?usp=drive_link",
-  linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-  twitter: "https://twitter.com/RishavChanda",
-  insta: "https://www.instagram.com/rishav_chanda/",
-  facebook: "https://www.facebook.com/rishav.chanda.165/",
+    "https://drive.google.com/file/d/1-k9o_kvtFBDy5DBHUl0XhagNmbmsbinZ/view?usp=sharing",
+  linkedin: "https://www.linkedin.com/in/",
+  twitter: "https://twitter.com/",
+  insta: "https://www.instagram.com/",
+  facebook: "https://www.facebook.com/",
 };
 
 export const skills = [
@@ -279,7 +279,7 @@ export const experiences = [
     id: 0,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/neurobit.jpeg?alt=media&token=1cacbb7b-e5ea-4efb-9b3d-f5a31b9564ad",
     role: "Frontend Engineer Intern",
-    company: "Neurobit",
+    company: "XXXXXXXXXXXXXX",
     date: "June 2023 - Nov 2023",
     desc: "Enhanced user experiences on Neurobit PSG & Hybrid, Portals by resolving bugs & reduced load time by 40%. Built Neurobit Analytics portal using React Js with seamless interaction of REST APIs using AXIOS optimized with React Query. Refactored previous code to TypeScript, updated with new dependency and integrated Vite with Jest for Unit Testing.",
     skills: [
@@ -297,7 +297,7 @@ export const experiences = [
     id: 1,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/flipr.jpeg?alt=media&token=1d72532a-45eb-4c1a-a81a-c9bed9fec543",
     role: "DevOps & Fullstack Engineering Intern",
-    company: "Flipr Inovations Pvt. Ltd.",
+    company: "XXXXXXXXXXXXXXXX",
     date: "Aug 2023 - Oct 2023",
     desc: "Built Flipr Connect Platforms using React Js integrated GraphQL with AXIOS, created High level Design and Figma design. Built Backend with GraphQL and Node JS and connected with MongoDb - Reducing API calls by 20%. Dockerized and automated with Kubernetes & Jenkins CI/CD deployed in AWS-EC2 added Prometheus & Grafana for monitoring.",
     skills: [
@@ -318,7 +318,7 @@ export const experiences = [
     id: 2,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Rudraksha.jpeg?alt=media&token=8f83f41e-d0a1-486f-9c7f-dd4cd1d09e8d",
     role: "Android Developer Intern",
-    company: "Rudraksha Welffare Foundation",
+    company: "XXXXXXXXXXXXXXX",
     date: "June 2021 - Oct 2021",
     desc: "• Built RudraShakti - Astrologer App, with MVVM Architecture using Java and Android Studio integrating Firebase SDK. Created One to One video call integration with Socket.IO and Firebase cloud functions and integrated with Retrofit. Created Low Level Design and converted Figma design to XML code.",
     skills: [
@@ -337,7 +337,7 @@ export const experiences = [
     id: 3,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/flipr.jpeg?alt=media&token=1d72532a-45eb-4c1a-a81a-c9bed9fec543",
     role: "Fullstack Externship",
-    company: "Flipr",
+    company: "XXXXXXX",
     date: "June 2023 - July 2023",
     desc: "Built an employee management full stack web app used Docker and deployed on AWS ec2. I was the top performer in the program.",
     skills: [
@@ -358,7 +358,7 @@ export const experiences = [
     id: 4,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/gdsc.jpeg?alt=media&token=c162329c-efaa-4be8-a173-8d3f4c48ea70",
     role: "Android Developer",
-    company: "DSC KIIT",
+    company: "XXXXXXX",
     date: "Nov2021 - Present",
     desc: "As an Android developer at the Google Developers Student Club (GDCS), I have had the opportunity to work on exciting projects and collaborate with talented developers who share my passion for technology. Through my involvement with GDCS, I have also had the opportunity to host and participate in numerous events, including hackathons, study jams, and workshops.",
     skills: [
@@ -373,7 +373,7 @@ export const experiences = [
     id: 5,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/girlScript.jpeg?alt=media&token=e656a621-cf3c-4230-bf0f-e74b4cec6035",
     role: "Open Source Contributor ",
-    company: "GirlScript Summer of Code",
+    company: "XXXXXXXXXXXXXXXXX",
     date: "May 2023 - Present",
     desc: "Contributed to different open-source projects and learn from industry experts",
   },
@@ -383,29 +383,29 @@ export const education = [
   {
     id: 0,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Kiit.jpeg?alt=media&token=3839d520-c59d-4341-ad8f-0980c98de4dd",
-    school: "Kalinga Institute of Industrial Technology, Bhubaneswar",
-    date: "Oct 2021 - Sep 2025",
-    grade: "8.41 CGPA",
-    desc: "I am currently pursuing a Bachelor's degree in Computer Science and Engineering at Kalinga Institute of Industrial Technology, Bhubaneswar. I have completed 4 semesters and have a CGPA of 8.71. I have taken courses in Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, and Computer Networks, among others. I am also a member of the Google Developers Student Club (GDSC) at KIIT, where I am learning and working on exciting projects with a team of talented developers.",
+    school: "Information Technology University - ITU , Lahore",
+    date: "Aug 2023 - Jan 2027",
+    //grade: "3.1 CGPA",
+    desc: "I am currently pursuing a Bachelor's degree in Computer Science and Engineering at Information Technology University - ITU (Arfa Technology Park) , Lahore. I have taken courses in Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, and Computer Networks, among others. I am also a member of the Google Developers Student Club (GDSC) at ITU, where I am learning and working on exciting projects with a team of talented developers.",
     degree: "Bachelor of Technology - BTech, Computer Science and Engineering",
   },
   {
     id: 1,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/methodist.png?alt=media&token=018a1b18-e2dd-4f34-8855-cff1b6b69fd3",
-    school: "Methodist School, Dankuni",
-    date: "Apr 2019 - Apr 2025",
-    grade: "88.2%",
-    desc: "I completed my class 12 high school education at Methodist School, Dankuni, where I studied Science with Computer Science.",
-    degree: "ISC(XII), Science with Computer",
+    school: "Punjab Group of College - PGC , Lahore",
+    date: "Aug 2021 - March 2023",
+    grade: "74%",
+    desc: "I completed my class 12 high school education at PGC Punjab College (Main) , Lahore, where I studied Science with Computer Science.",
+    degree: "FSC - Pre Engineering",
   },
   {
     id: 2,
     img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/methodist.png?alt=media&token=018a1b18-e2dd-4f34-8855-cff1b6b69fd3",
-    school: "Methodist School, Dankuni",
-    date: "Apr 2017 - Apr 2019",
-    grade: "92.3%",
-    desc: "I completed my class 10 education at Methodist School, Dankuni, where I studied Science with Computer Application.",
-    degree: "ICSC(X), Science with Computer",
+    school: "Beaconhouse School System, Lahore",
+    date: "Apr 2009 - Apr 2021",
+    grade: "91.4%",
+    desc: "I completed my class 10 education at Beaconhouse School system, Lahore, where I studied Science with Computer Application.",
+    degree: "Matriculation",
   },
 ];
 
@@ -427,7 +427,7 @@ export const projects = [
       "React Flow",
     ],
     category: "web app",
-    github: "https://github.com/rishavchanda/DecisionHub",
+    github: "https://github.com/",
     webapp: "https://decisionhub.netlify.app/",
   },
   {
@@ -452,7 +452,7 @@ export const projects = [
       "Redux",
     ],
     category: "web app",
-    github: "https://github.com/rishavchanda/Trackify",
+    github: "https://github.com/",
     webapp: "https://trackify-management.netlify.app/",
   },
   {
@@ -465,14 +465,14 @@ export const projects = [
       "https://user-images.githubusercontent.com/64485885/234602896-a1bd8bcc-b72b-4821-83d6-8ad885bf435e.png",
     tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
     category: "web app",
-    github: "https://github.com/rishavchanda/Podstream",
+    github: "https://github.com/",
     webapp: "https://podstream.netlify.app/",
     member: [
       {
         name: "Rishav Chanda",
         img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-        linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-        github: "https://github.com/rishavchanda/",
+        linkedin: "https://www.linkedin.com/in/",
+        github: "https://github.com/",
       },
       {
         name: "Upasana Chaudhuri",
@@ -622,10 +622,4 @@ export const projects = [
   },
 ];
 
-export const TimeLineData = [
-  { year: 2017, text: "Started my journey" },
-  { year: 2018, text: "Worked as a freelance developer" },
-  { year: 2019, text: "Founded JavaScript Mastery" },
-  { year: 2020, text: "Shared my projects with the world" },
-  { year: 2021, text: "Started my own platform" },
-];
+
