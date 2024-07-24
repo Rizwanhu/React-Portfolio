@@ -3,6 +3,14 @@ import styled from "styled-components"
 import {Bio} from "../data/constants"
 import Typewriter from "typewriter-effect";
 import img from "../assets/pic.jpeg"
+import MainBgAnimation from "../MainBgAnimation/Msection"
+import {Tilt} from "react-tilt"
+import {motion} from "framer-motion"
+import {headContainerAnimation,headContentAnimation,headTextAnimation,} from "../utils/motion";
+// import StarCanvas from "../canvas/Stars";
+import { StarsCanvas } from '../canvas';
+
+
 
 const MainContainer = styled.div`
     display:flex;
@@ -181,31 +189,33 @@ const Img = styled.img`
   height: 100%;
   max-width: 400px;
   max-height: 400px;
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 3px solid ${({ theme }) => theme.primary};
 
   @media (max-width: 640px) {
     max-width: 280px;
     max-height: 280px;
+
   }
 `;
 
-const HeroBg = styled.div`
+const MainBg = styled.div`
   position: absolute;
   display: flex;
   justify-content: end;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 1360px;
-  overflow: hidden;
-  padding: 0 30px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
+  
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+  // max-width: 1360px;
+  // overflow: hidden;
+  // padding: 0 30px;
+  // top: 50%;
+  // left: 50%;
+  // -webkit-transform: translateX(-50%) translateY(-50%);
+  // transform: translateX(-50%) translateY(-50%);
 
   @media (max-width: 960px) {
     justify-content: center;
@@ -218,14 +228,23 @@ const HeroBg = styled.div`
 
 const Main = () => {
   return (
-    <div id="about">
+    <div id="Profile">
       <MainContainer>
+
+        <MainBg>
+          <StarsCanvas />
+          <MainBgAnimation />
+        </MainBg>
+
+        <motion.div {...headContainerAnimation} >
+
         <MainInnerContainer>
           <MainLeftContainer>
+          <motion.div {...headTextAnimation} >
+
             <Title>
               Hi, I am <br /> {Bio.name}
             </Title>
-
             <TextLoop>
                   I am a
                   <Span>
@@ -235,10 +254,13 @@ const Main = () => {
                         autoStart: true,
                         loop: true,
                       }}
-                    />
+                      />
                   </Span>
                 </TextLoop>
             
+                      </motion.div>
+
+                      
             <SubTitle>
               {Bio.description}
             </SubTitle>
@@ -250,9 +272,14 @@ const Main = () => {
 
           </MainLeftContainer>
           <MainRightContainer>
+          <Tilt>
             <Img src={img} alt="Rizwan Picture" />
+            </Tilt>
           </MainRightContainer>
         </MainInnerContainer>
+
+        </motion.div>
+
       </MainContainer>
     </div>
   )
