@@ -10,7 +10,8 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Education from './components/Education'
 import Contact from './components/Contact'
-
+import StarsCanvas from "../src/canvas/Stars";
+import Footer from './components/Footer'
 
 
 
@@ -47,6 +48,8 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <Body>
+        <div className=" relative">
+        <StarsCanvas />
         <Main />
         
         <Wrapper>
@@ -64,10 +67,10 @@ const App = () => {
         </Wrapper>
 
 
-        <Contact />
-
+        <Footer />
         <Content />
 
+        </div>
       </Body>
     </BrowserRouter>
     </ThemeProvider>

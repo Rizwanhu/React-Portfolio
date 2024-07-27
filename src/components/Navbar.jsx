@@ -90,6 +90,10 @@ const GithubButton = styled.a`
   &:hover {
     background: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.text_primary};
+    @media (max-width: 880px) {
+    // display:flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

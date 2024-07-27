@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
+import EarthCanvas from "../canvas/Earth";
 
 const Container = styled.div`
   display: flex;
@@ -111,11 +112,54 @@ const ContactButton = styled.input`
 
 
 const Contact = () => {
+
+  const form = useRef();
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_45609ei",
+        "template_zga0tbl",
+        form.current,
+        "JOMaXEWwnliFiweDe"
+      )
+      .then(
+        (result) => {
+          alert("Message Sent");
+          form.current.result();
+        },
+        (error) => {
+          alert(error);
+        }
+      );
+  };
+
+
   return (
-    <div id="contact">
-      
-    </div>
-  )
-}
+    <Container id="contact">
+      <Wrapper>
+        <EarthCanvas />
+        <Title>Contact</Title>
+        <Desc
+          style={{
+            marginBottom: "40px",
+          }}
+        >
+        Feel free to reach out to me for any questions or opportunities!
+</Desc>
+
+      <ContactForm onSubmit={handelSubmit}>
+          <ContactTitle>Email Me 🚀</ContactTitle>
+          <ContactInput placeholder="Your Email" name="from_email" />
+          <ContactInput placeholder="Your Name" name="from_name" />
+          <ContactInput placeholder="Subject" name="subject" />
+          <ContactInputMessage placeholder="Message" name="message" rows={4} />
+          <ContactButton type="submit" value="Send" />
+        </ContactForm>
+
+      </Wrapper>
+    </Container>
+  );
+};
 
 export default Contact
