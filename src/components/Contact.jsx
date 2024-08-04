@@ -138,7 +138,7 @@ const Contact = () => {
   return (
     <Container id="contact">
       <Wrapper>
-        <EarthCanvas />
+        {/* <EarthCanvas /> */}
         <Title>Contact</Title>
         <Desc
           style={{

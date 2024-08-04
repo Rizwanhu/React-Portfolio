@@ -2,6 +2,26 @@ import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import styled from "styled-components";
+
+
+
+
+
+const Div = styled.div`
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+`;
+
+
+
+
 
 const Stars = (props) => {
   const ref = useRef();
@@ -29,7 +49,7 @@ const Stars = (props) => {
 
 const StarsCanvas = () => {
   return (
-    <div className='w-full h-auto absolute inset-0 z-[-1]'>
+    <Div>
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
           <Stars />
@@ -37,7 +57,7 @@ const StarsCanvas = () => {
 
         <Preload all />
       </Canvas>
-    </div>
+    </Div>
   );
 };
 

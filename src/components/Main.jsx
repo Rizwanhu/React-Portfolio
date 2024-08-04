@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import {Bio} from "../data/constants"
 import Typewriter from "typewriter-effect";
-import img from "../assets/pic.jpeg"
+import img from "../assets/personalsite-image.png"
 import MainBgAnimation from "../MainBgAnimation/Msection"
 import {Tilt} from "react-tilt"
 import {motion} from "framer-motion"
@@ -189,7 +189,7 @@ const Img = styled.img`
   height: 100%;
   max-width: 400px;
   max-height: 400px;
-  border: 3px solid ${({ theme }) => theme.primary};
+  border: 5px solid ${({ theme }) => theme.primary};
 
   @media (max-width: 640px) {
     max-width: 280px;
