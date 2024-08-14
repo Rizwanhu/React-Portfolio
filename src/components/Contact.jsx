@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 import EarthCanvas from "../canvas/Earth";
+// import emailjs from 'emailjs-com';
 
 const Container = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ const Desc = styled.div`
   }
 `;
 
-const ContactForm = styled.div`
+const ContactForm = styled.form`
   width: 95%;
   max-width: 600px;
   display: flex;
@@ -105,6 +106,7 @@ const ContactButton = styled.input`
   color: ${({ theme }) => theme.text_primary};
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 
@@ -114,22 +116,22 @@ const ContactButton = styled.input`
 const Contact = () => {
 
   const form = useRef();
-  const handelSubmit = (e) => {
+
+  // Initialize EmailJS with your public key
+  emailjs.init('JOMaXEWwnliFiweDe');
+
+  const sendEmail = (e) => {
     e.preventDefault();
+
     emailjs
-      .sendForm(
-        "service_45609ei",
-        "template_zga0tbl",
-        form.current,
-        "JOMaXEWwnliFiweDe"
-      )
+      .sendForm('service_9o166bu', 'template_rbrz3wu', form.current, 'JOMaXEWwnliFiweDe')
       .then(
         (result) => {
-          alert("Message Sent");
-          form.current.result();
+          console.log('SUCCESS!', result.text);
+          form.current.reset(); // Reset the form after a successful email submission
         },
         (error) => {
-          alert(error);
+          console.log('FAILED...', error.text);
         }
       );
   };
@@ -148,14 +150,17 @@ const Contact = () => {
         Feel free to reach out to me for any questions or opportunities!
 </Desc>
 
-      <ContactForm onSubmit={handelSubmit}>
+
+          {/* <form ref={form} onSubmit={sendEmail}> */}
+      <ContactForm ref={form} onSubmit={sendEmail}>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
+          <ContactInput placeholder="Your Email" name="user_email" />
+          <ContactInput placeholder="Your Name" name="user_name" />
           <ContactInput placeholder="Subject" name="subject" />
           <ContactInputMessage placeholder="Message" name="message" rows={4} />
-          <ContactButton type="submit" value="Send" />
+          <ContactButton type="submit" />
         </ContactForm>
+          {/* </form> */}
 
       </Wrapper>
     </Container>
