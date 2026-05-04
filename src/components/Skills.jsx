@@ -113,9 +113,21 @@ const SkillItem = styled.div`
     padding: 6px 12px;
   }
 `;
+const SkillIconWrap = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  flex-shrink: 0;
+`;
+
 const SkillImage = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 `;
 
 
@@ -130,8 +142,18 @@ const Skills = () => {
             Skills
           </Title>
           <Description>
-            Tools I use to take ideas from ticket to production — web, mobile,
-            data, and release hygiene.
+            Logos load from{" "}
+            <a
+              href="https://www.jsdelivr.com/package/npm/simple-icons"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "inherit", textDecoration: "underline" }}
+            >
+              jsDelivr (Simple Icons)
+            </a>
+            {" "}
+            — preconnected in <code style={{ fontSize: "0.9em" }}>index.html</code> for faster TLS.
+            Tools I use from ticket to production: web, mobile, data, and release hygiene.
           </Description>
           
         <SkillsContainer>
@@ -142,12 +164,14 @@ const Skills = () => {
                 <SkillList>
                   {skill.skills.map((item, index_x) => (
                     <SkillItem key={`${item.name}-${index_x}`}>
-                      <SkillImage
-                        src={item.image}
-                        alt=""
-                        loading="lazy"
-                        decoding="async"
-                      />
+                      <SkillIconWrap>
+                        <SkillImage
+                          src={item.image}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </SkillIconWrap>
                       {item.name}
                     </SkillItem>
                   ))}

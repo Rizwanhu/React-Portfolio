@@ -16,6 +16,7 @@ export const Bio = {
   phone: "+92 315 4217161",
   location: "Lahore, Pakistan",
   github: "https://github.com/Rizwanhu",
+  resumePdfPath: "/Rizwan-CV.pdf",
   resume:
     "https://drive.google.com/file/d/1-k9o_kvtFBDy5DBHUl0XhagNmbmsbinZ/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/rizwan-hussain66",
@@ -53,12 +54,12 @@ export const skills = [
       {
         name: "CSS3",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
+          "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg",
       },
       {
         name: "JavaScript",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
+          "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg",
       },
       {
         name: "TypeScript",
@@ -68,7 +69,7 @@ export const skills = [
       {
         name: "Tailwind CSS",
         image:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+          "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
       },
       {
         name: "Bootstrap",
@@ -150,12 +151,12 @@ export const skills = [
       {
         name: "Postman",
         image:
-          "https://static-00.iconduck.com/assets.00/postman-icon-497x512-beb7sy75.png",
+          "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg",
       },
       {
         name: "VS Code",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png",
+          "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/visualstudiocode.svg",
       },
     ],
   },
@@ -339,31 +340,6 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 11,
-    title: "Car Rental (OOP, C++)",
-    date: "2023",
-    description:
-      "Group project: rental flows, persistence to text files, and full CRUD-style management using OOP in C++.",
-    image:
-      "https://media.cheggcdn.com/media/d1e/d1efb232-32a5-4326-acd5-ca5894b31fb0/phpKpgBDy",
-    tags: ["OOP", "C++", "File I/O"],
-    category: "C++",
-    github: "https://github.com/Rizwanhu/Car-Rental-Application-in-OOP",
-    webapp: "",
-  },
-  {
-    id: 9,
-    title: "Random Color Generator",
-    date: "2023",
-    description:
-      "Lightweight tool site — one-click palettes with hex codes for designers and devs.",
-    image: "https://randomwordgenerator.com/img/color.jpg",
-    tags: ["HTML", "CSS", "JavaScript"],
-    category: "web app",
-    github: "https://github.com/Rizwanhu/Random-Color-Generator-Site",
-    webapp: "https://random-color-generator-rho.vercel.app/",
-  },
-  {
     id: 1,
     title: "Sneakers E-commerce UI",
     date: "2023",
@@ -400,30 +376,5 @@ export const projects = [
     category: "web app",
     github: "https://github.com/Rizwanhu/Frontend-code-Editor-Project",
     webapp: "https://frontend-code-editor-project.vercel.app/",
-  },
-  {
-    id: 4,
-    title: "Cricket TXT Analytics (C++)",
-    date: "2023",
-    description:
-      "Parses match summaries from text to surface winners, run rates, and standout performances — practical file I/O + algorithms.",
-    image: "https://cdn.hackr.io/uploads/posts/large/1604990363AtwCbeT3ma.png",
-    tags: ["C++", "Parsing"],
-    category: "C++",
-    github: "https://github.com/Rizwanhu/TXT-File-Processing-CPP-Project",
-    webapp: "",
-  },
-  {
-    id: 5,
-    title: "Prison Break Simulation (C++)",
-    date: "2023",
-    description:
-      "Grid-based escape simulation driven by OOP design — readable state transitions from file-backed layouts.",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/d3b4a656506519.Y3JvcCw3MzAsNTcxLDM0LDYx.png",
-    tags: ["C++", "OOP"],
-    category: "C++",
-    github: "https://github.com/Rizwanhu/Prison-Break",
-    webapp: "",
   },
 ];

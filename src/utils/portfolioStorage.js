@@ -1,16 +1,20 @@
 const PROJECT_FILTER_KEY = "portfolio_project_filter_v1";
+
+const VALID_PROJECT_FILTERS = new Set(["all", "web app", "mobile", "ai"]);
 const CONTACT_DRAFT_KEY = "portfolio_contact_draft_v1";
 
 export const getStoredProjectFilter = () => {
   try {
     const v = localStorage.getItem(PROJECT_FILTER_KEY);
-    return v && typeof v === "string" ? v : "all";
+    if (v && typeof v === "string" && VALID_PROJECT_FILTERS.has(v)) return v;
+    return "all";
   } catch {
     return "all";
   }
 };
 
 export const setStoredProjectFilter = (value) => {
+  if (!VALID_PROJECT_FILTERS.has(value)) return;
   try {
     localStorage.setItem(PROJECT_FILTER_KEY, value);
   } catch {

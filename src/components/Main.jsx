@@ -362,9 +362,12 @@ const Main = () => {
               </QuickLink>
             </LinkRow>
 
-            <ResumeButton href={Bio.resume} target="_blank" rel="noreferrer">
-                View Resume
-              </ResumeButton>
+            <ResumeButton
+              href={Bio.resumePdfPath}
+              download="Rizwan-CV.pdf"
+            >
+              Download résumé
+            </ResumeButton>
 
 
           </MainLeftContainer>

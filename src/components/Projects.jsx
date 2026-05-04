@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback } from "react";
+import React, { useMemo, useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { projects } from "../data/constants";
 import ProjectCard from "../Section/Projectinfo";
@@ -6,6 +6,8 @@ import {
   getStoredProjectFilter,
   setStoredProjectFilter,
 } from "../utils/portfolioStorage";
+
+const PAGE_SIZE = 6;
 
 const Container = styled.div`
   display: flex;
@@ -113,16 +115,52 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+const SeeMoreRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  width: 100%;
+`;
+
+const CountHint = styled.p`
+  margin: 0;
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_secondary};
+`;
+
+const SeeMoreButton = styled.button`
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1.5px solid ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.primary + 18};
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+  }
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+`;
+
 const FILTER_OPTIONS = [
   { id: "all", label: "All" },
   { id: "web app", label: "Web apps" },
   { id: "mobile", label: "Mobile" },
   { id: "ai", label: "AI & data" },
-  { id: "C++", label: "C++" },
 ];
 
 const Projects = () => {
   const [toggle, setToggle] = useState(getStoredProjectFilter);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const onFilterChange = useCallback((id) => {
     setToggle(id);
@@ -133,6 +171,14 @@ const Projects = () => {
     if (toggle === "all") return projects;
     return projects.filter((item) => item.category === toggle);
   }, [toggle]);
+
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [toggle]);
+
+  const total = filteredProjects.length;
+  const shown = filteredProjects.slice(0, visibleCount);
+  const hasMore = visibleCount < total;
 
   return (
     <Container id="Projects">
@@ -161,10 +207,28 @@ const Projects = () => {
         </ToggleButtonGroup>
 
         <CardContainer>
-          {filteredProjects.map((project) => (
+          {shown.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </CardContainer>
+
+        {total > 0 && (
+          <SeeMoreRow>
+            <CountHint>
+              Showing {shown.length} of {total} project{total === 1 ? "" : "s"}
+            </CountHint>
+            {hasMore ? (
+              <SeeMoreButton
+                type="button"
+                onClick={() =>
+                  setVisibleCount((c) => Math.min(c + PAGE_SIZE, total))
+                }
+              >
+                See more
+              </SeeMoreButton>
+            ) : null}
+          </SeeMoreRow>
+        )}
       </Wrapper>
     </Container>
   );
