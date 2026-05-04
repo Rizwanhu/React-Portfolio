@@ -1,19 +1,17 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import styled , {ThemeProvider} from 'styled-components'
-import {darkTheme} from "./utils/Themes"
-import {BrowserRouter} from 'react-router-dom'
-import Main from './components/Main'
-import Content from './components/Content'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Education from './components/Education'
-import Contact from './components/Contact'
-import StarsCanvas from "../src/canvas/Stars";
-import Footer from './components/Footer'
+import React, { Suspense, lazy } from "react";
+import Navbar from "./components/Navbar";
+import styled, { ThemeProvider } from "styled-components";
+import { darkTheme } from "./utils/Themes";
+import { BrowserRouter } from "react-router-dom";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 
-
+const Skills = lazy(() => import("./components/Skills"));
+const Experience = lazy(() => import("./components/Experience"));
+const Projects = lazy(() => import("./components/Projects"));
+const Education = lazy(() => import("./components/Education"));
+const Contact = lazy(() => import("./components/Contact"));
+import Content from "./components/Content";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -38,43 +36,41 @@ const Wrapper = styled.div`
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
 
-
-
-
+const SectionFallback = styled.div`
+  min-height: 140px;
+  width: 100%;
+`;
 
 const App = () => {
   return (
     <ThemeProvider theme={darkTheme}>
-    <BrowserRouter>
-      <Navbar />
-      <Body>
-        <div className=" relative">
-        <StarsCanvas />
-        <Main />
-        
-        <Wrapper>
+      <BrowserRouter>
+        <Navbar />
+        <Body>
+          <div className="relative">
+            <Main />
 
-        <Skills />
-        <Experience />
+            <Suspense fallback={<SectionFallback />}>
+              <Wrapper>
+                <Skills />
+                <Experience />
+              </Wrapper>
 
-        </Wrapper>
+              <Projects />
 
-        <Projects />
+              <Wrapper>
+                <Education />
+                <Contact />
+              </Wrapper>
 
-        <Wrapper>
-        <Education />
-        <Contact />
-        </Wrapper>
-
-
-        <Footer />
-        <Content />
-
-        </div>
-      </Body>
-    </BrowserRouter>
+            </Suspense>
+            <Footer />
+            <Content />
+          </div>
+        </Body>
+      </BrowserRouter>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

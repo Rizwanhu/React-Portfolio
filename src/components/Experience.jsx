@@ -76,16 +76,18 @@ const Experience = () => {
         <Desc
           style={{
             marginBottom: "40px",
+            maxWidth: "720px",
+            lineHeight: 1.5,
           }}
         >
-          My work experience as a software engineer and working on different
-          companies and projects.
+          Full-stack and mobile roles with measurable ownership — APIs, auth,
+          dashboards, and client-facing delivery in Agile environments.
         </Desc>
 
         <VerticalTimeline>
-          {experiences.map((experience, index) => (
+          {experiences.map((experience) => (
             <Experienceinfo
-              key={`experience-${index}`}
+              key={experience.id}
               experience={experience}
             />
           ))}

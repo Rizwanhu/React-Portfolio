@@ -1,7 +1,7 @@
 import React , {useState}  from 'react'
 import styled, { useTheme } from "styled-components";
 import {Link as LinkR} from 'react-router-dom'
-import {Bio} from "../data/constants"
+import { Bio } from "../data/constants";
 import {MenuRounded} from "@mui/icons-material"
 
 
@@ -146,7 +146,7 @@ const Navbar = () => {
     <Nav>
     <NavbarContainer>
         <Navbarlogo to="/">
-            <a href="">Rizwan Hussain</a>
+            <a href="#Profile">Rizwan Hussain</a>
         </Navbarlogo>
 
 
@@ -161,14 +161,15 @@ const Navbar = () => {
           <Navlink href="#Experience">Experience</Navlink>
           <Navlink href="#Projects">Projects</Navlink>
           <Navlink href="#Education">Education</Navlink>
+          <Navlink href="#contact">Contact</Navlink>
         </NavItems>
 
 
 
         {isOpen && (
           <MobileMenu isOpen={isOpen}>
-            <Navlink onClick={() => setIsOpen(!isOpen)} href="#About">
-              About
+            <Navlink onClick={() => setIsOpen(!isOpen)} href="#Profile">
+              Profile
             </Navlink>
             <Navlink onClick={() => setIsOpen(!isOpen)} href="#Skills">
               Skills
@@ -182,24 +183,44 @@ const Navbar = () => {
             <Navlink onClick={() => setIsOpen(!isOpen)} href="#Education">
               Education
             </Navlink>
-
+            <Navlink onClick={() => setIsOpen(!isOpen)} href="#contact">
+              Contact
+            </Navlink>
 
             <GithubButton
-              href={Bio.github}
-              target="_Blank"
+              href={Bio.linkedin}
+              target="_blank"
+              rel="noreferrer"
               style={{
                 background: theme.primary,
                 color: theme.text_primary,
               }}
             >
-              Github Profile
+              LinkedIn
+            </GithubButton>
+            <GithubButton
+              href={Bio.github}
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                background: "transparent",
+                border: `1px solid ${theme.primary}`,
+                color: theme.primary,
+              }}
+            >
+              GitHub
             </GithubButton>
           </MobileMenu>
         )}
 
 
-      <ButtonContainer>
-        <GithubButton href={Bio.github} target="_Blank" >Github Profile</GithubButton>
+      <ButtonContainer style={{ gap: "10px" }}>
+        <GithubButton href={Bio.linkedin} target="_blank" rel="noreferrer">
+          LinkedIn
+        </GithubButton>
+        <GithubButton href={Bio.github} target="_blank" rel="noreferrer">
+          GitHub
+        </GithubButton>
       </ButtonContainer>
 
 

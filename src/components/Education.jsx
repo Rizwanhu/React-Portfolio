@@ -60,15 +60,17 @@ const Education = () => {
         <Desc
           style={{
             marginBottom: "40px",
+            maxWidth: "720px",
+            lineHeight: 1.5,
           }}
         >
-          My education has been a journey of self-discovery and growth. My
-          educational details are as follows.
+          Formal training in CS plus continuous self-study in modern stacks —
+          the combination that keeps my delivery grounded and current.
         </Desc>
 
         <VerticalTimeline>
-          {education.map((education, index) => (
-            <EducationCard key={`education-${index}`} education={education} />
+          {education.map((edu) => (
+            <EducationCard key={edu.id} education={edu} />
           ))}
         </VerticalTimeline>
         {/* <EarthCanvas /> */}

@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import styled from "styled-components";
 import { projects } from "../data/constants";
 import ProjectCard from "../Section/Projectinfo";
+import {
+  getStoredProjectFilter,
+  setStoredProjectFilter,
+} from "../utils/portfolioStorage";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-contnet: center;
+  justify-content: center;
   margin-top: 50px;
-  padding: 0px 16px;
-  position: rlative;
+  padding: 0 16px 24px;
+  position: relative;
   z-index: 1;
   align-items: center;
 `;
@@ -27,6 +31,7 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
+
 const Title = styled.div`
   font-size: 52px;
   text-align: center;
@@ -38,110 +43,127 @@ const Title = styled.div`
     font-size: 32px;
   }
 `;
+
 const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   font-weight: 600;
+  max-width: 720px;
+  line-height: 1.5;
   color: ${({ theme }) => theme.text_secondary};
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 15px;
+    padding: 0 4px;
   }
 `;
 
 const ToggleButtonGroup = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
   border: 1.5px solid ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.primary};
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 12px;
-font-weight 500;
-margin: 22px 0;
-@media (max-width: 768px){
-    font-size: 12px;
-}
+  font-weight: 500;
+  margin: 22px 0;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    font-size: 11px;
+    border-radius: 10px;
+  }
 `;
-const ToggleButton = styled.div`
-  padding: 8px 18px;
-  border-radius: 6px;
+
+const ToggleButton = styled.button`
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   cursor: pointer;
+  white-space: nowrap;
   &:hover {
     background: ${({ theme }) => theme.primary + 20};
   }
   @media (max-width: 768px) {
-    padding: 6px 8px;
-    border-radius: 4px;
+    padding: 8px 10px;
   }
-  ${({ active, theme }) =>
-    active &&
+  ${({ $active, theme }) =>
+    $active &&
     `
-  background:  ${theme.primary + 20};
+  background:  ${theme.primary + 28};
+  font-weight: 600;
   `}
 `;
+
 const Divider = styled.div`
   width: 1.5px;
+  align-self: stretch;
+  min-height: 36px;
   background: ${({ theme }) => theme.primary};
 `;
 
 const CardContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 28px;
+  align-items: stretch;
+  gap: 24px;
   flex-wrap: wrap;
 `;
 
+const FILTER_OPTIONS = [
+  { id: "all", label: "All" },
+  { id: "web app", label: "Web apps" },
+  { id: "mobile", label: "Mobile" },
+  { id: "ai", label: "AI & data" },
+  { id: "C++", label: "C++" },
+];
+
 const Projects = () => {
-  const [toggle, setToggle] = useState("all");
+  const [toggle, setToggle] = useState(getStoredProjectFilter);
+
+  const onFilterChange = useCallback((id) => {
+    setToggle(id);
+    setStoredProjectFilter(id);
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (toggle === "all") return projects;
+    return projects.filter((item) => item.category === toggle);
+  }, [toggle]);
+
   return (
     <Container id="Projects">
       <Wrapper>
         <Title>Projects</Title>
-        <Desc
-          style={{
-            marginBottom: "40px",
-          }}
-        >
-          I have worked on a wide range of projects. Here are some of my projects.
+        <Desc style={{ marginBottom: "28px" }}>
+          A mix of production-style builds and sharp experiments — each tied to a
+          clear user or business outcome, not just a tech demo.
         </Desc>
 
-        <ToggleButtonGroup>
-          <ToggleButton
-            active={toggle === "all"}
-            onClick={() => setToggle("all")}
-          >
-            ALL
-          </ToggleButton>
-          <Divider />
-          <ToggleButton
-            active={toggle === "web app"}
-            onClick={() => setToggle("web app")}
-          >
-            WEB APP"S
-          </ToggleButton>
-          <Divider />
-          <ToggleButton
-            active={toggle === "C++"}
-            onClick={() => setToggle("C++")}
-          >
-            C++
-          </ToggleButton>
-          <Divider />
-          <ToggleButton
-            active={toggle === "Others"}
-            onClick={() => setToggle("Others")}
-          >
-            Others
-          </ToggleButton>
+        <ToggleButtonGroup role="tablist" aria-label="Filter projects">
+          {FILTER_OPTIONS.map((opt, index) => (
+            <React.Fragment key={opt.id}>
+              {index > 0 && <Divider aria-hidden />}
+              <ToggleButton
+                type="button"
+                role="tab"
+                aria-selected={toggle === opt.id}
+                $active={toggle === opt.id}
+                onClick={() => onFilterChange(opt.id)}
+              >
+                {opt.label}
+              </ToggleButton>
+            </React.Fragment>
+          ))}
         </ToggleButtonGroup>
 
         <CardContainer>
-          {toggle === "all" &&
-            projects.map((project) => <ProjectCard project={project} />)}
-          {projects
-            .filter((item) => item.category === toggle)
-            .map((project) => (
-              <ProjectCard project={project} />
-            ))}
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </CardContainer>
       </Wrapper>
     </Container>

@@ -130,18 +130,24 @@ const Skills = () => {
             Skills
           </Title>
           <Description>
-          Here are some of my skills on which I have been working on for the past 3 years.
+            Tools I use to take ideas from ticket to production — web, mobile,
+            data, and release hygiene.
           </Description>
           
         <SkillsContainer>
           {skills.map((skill, index) => (
-            <Tilt>
-              <Skill key={`skill-${index}`}>
+            <Tilt key={`skill-block-${skill.title}-${index}`}>
+              <Skill>
                 <SkillTitle>{skill.title}</SkillTitle>
                 <SkillList>
                   {skill.skills.map((item, index_x) => (
-                    <SkillItem key={`skill-x-${index_x}`}>
-                      <SkillImage src={item.image} />
+                    <SkillItem key={`${item.name}-${index_x}`}>
+                      <SkillImage
+                        src={item.image}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
                       {item.name}
                     </SkillItem>
                   ))}

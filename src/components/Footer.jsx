@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Bio } from "../data/constants";
-import {FacebookRounded,Instagram,LinkedIn,Twitter} from "@mui/icons-material";
+import { FacebookRounded, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
+import { SiFiverr } from "react-icons/si";
 
 
 
@@ -84,27 +85,31 @@ const Footer = () => {
       <FooterWrapper>
         <Logo>Rizwan Hussain</Logo>
         <Nav>
-          <NavLink href="#About">About</NavLink>
+          <NavLink href="#Profile">Profile</NavLink>
           <NavLink href="#Skills">Skills</NavLink>
           <NavLink href="#Experience">Experience</NavLink>
           <NavLink href="#Projects">Projects</NavLink>
           <NavLink href="#Education">Education</NavLink>
+          <NavLink href="#contact">Contact</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display">
+          <SocialMediaIcon href={Bio.facebook} target="_blank" rel="noreferrer">
             <FacebookRounded />
           </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display">
+          <SocialMediaIcon href={Bio.twitter} target="_blank" rel="noreferrer">
             <Twitter />
           </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.linkedin} target="display">
+          <SocialMediaIcon href={Bio.linkedin} target="_blank" rel="noreferrer">
             <LinkedIn />
           </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display">
+          <SocialMediaIcon href={Bio.fiverr} target="_blank" rel="noreferrer" aria-label="Fiverr">
+            <SiFiverr />
+          </SocialMediaIcon>
+          <SocialMediaIcon href={Bio.insta} target="_blank" rel="noreferrer">
             <Instagram />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2024 Rizwan Hussain. All rights reserved.</Copyright>
+        <Copyright>&copy; 2026 Rizwan Hussain. All rights reserved.</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );

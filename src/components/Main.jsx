@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import styled from "styled-components"
-import {Bio} from "../data/constants"
+import { Bio, heroStats } from "../data/constants"
 import Typewriter from "typewriter-effect";
 import img from "../assets/personalsite-image.png"
-import MainBgAnimation from "../MainBgAnimation/Msection"
 import {Tilt} from "react-tilt"
 import {motion} from "framer-motion"
 import {headContainerAnimation,headContentAnimation,headTextAnimation,} from "../utils/motion";
 // import StarCanvas from "../canvas/Stars";
 import { StarsCanvas } from '../canvas';
 
+const MainBgAnimation = lazy(() => import("../MainBgAnimation/Msection"));
 
 
 const MainContainer = styled.div`
@@ -123,7 +123,7 @@ const MainRightContainer = styled.div`
   const SubTitle = styled.div`
   font-size: 20px;
   line-height: 32px;
-  margin-bottom: 42px;
+  margin-bottom: 20px;
   color: ${({ theme }) => theme.text_primary + 95};
 
   @media (max-width: 960px) {
@@ -133,6 +133,78 @@ const MainRightContainer = styled.div`
   @media (max-width: 960px) {
     font-size: 16px;
     line-height: 32px;
+  }
+`;
+
+const Tagline = styled.p`
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: ${({ theme }) => theme.text_secondary};
+  max-width: 560px;
+  @media (max-width: 960px) {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+const StatsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 560px;
+  margin-bottom: 22px;
+  @media (max-width: 960px) {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const StatCard = styled.div`
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid ${({ theme }) => theme.text_primary + 22};
+  background: rgba(17, 25, 40, 0.55);
+  text-align: center;
+`;
+
+const StatValue = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.primary};
+  line-height: 1.2;
+`;
+
+const StatLabel = styled.div`
+  font-size: 12px;
+  line-height: 1.35;
+  margin-top: 4px;
+  color: ${({ theme }) => theme.text_secondary};
+`;
+
+const LinkRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  @media (max-width: 960px) {
+    justify-content: center;
+  }
+`;
+
+const QuickLink = styled.a`
+  color: ${({ theme }) => theme.primary};
+  text-decoration: none;
+  font-weight: 500;
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -233,7 +305,9 @@ const Main = () => {
 
         <MainBg>
           <StarsCanvas />
-          <MainBgAnimation />
+          <Suspense fallback={null}>
+            <MainBgAnimation />
+          </Suspense>
         </MainBg>
 
         <motion.div {...headContainerAnimation} >
@@ -264,16 +338,39 @@ const Main = () => {
             <SubTitle>
               {Bio.description}
             </SubTitle>
+            {Bio.tagline ? <Tagline>{Bio.tagline}</Tagline> : null}
 
-            <ResumeButton href={Bio.resume} target="_blank">
-                Check Resume
+            <StatsGrid aria-label="Highlights">
+              {heroStats.map((s) => (
+                <StatCard key={s.label}>
+                  <StatValue>{s.value}</StatValue>
+                  <StatLabel>{s.label}</StatLabel>
+                </StatCard>
+              ))}
+            </StatsGrid>
+
+            <LinkRow>
+              <QuickLink href={`mailto:${Bio.email}`}>Email</QuickLink>
+              <QuickLink href={Bio.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn
+              </QuickLink>
+              <QuickLink href={Bio.fiverr} target="_blank" rel="noreferrer">
+                Fiverr
+              </QuickLink>
+              <QuickLink href={Bio.github} target="_blank" rel="noreferrer">
+                GitHub
+              </QuickLink>
+            </LinkRow>
+
+            <ResumeButton href={Bio.resume} target="_blank" rel="noreferrer">
+                View Resume
               </ResumeButton>
 
 
           </MainLeftContainer>
           <MainRightContainer>
           <Tilt>
-            <Img src={img} alt="Rizwan Picture" />
+            <Img src={img} alt="Rizwan Hussain" loading="eager" decoding="async" fetchPriority="high" />
             </Tilt>
           </MainRightContainer>
         </MainInnerContainer>
